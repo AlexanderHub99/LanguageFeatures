@@ -27,5 +27,13 @@ namespace LanguageFeatures.Controllers
             };
             return View("IndexDictionary",products.Keys );
         }
+
+        public ViewResult IndexExtension()
+        {
+            ShoppingCart cart = new ShoppingCart { Products = Product.GetProduct()};
+            decimal cartTotal = cart.TotalPrices();
+            
+            return View("IndexExtension", new string[] {$"Total: {cartTotal:C2}"});
+        }
     }
 }
