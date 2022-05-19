@@ -65,20 +65,23 @@ namespace LanguageFeatures.Controllers
         {
             Product[] product =
             {
-                new Product {Name = "Kayak", Person = 275M},
-                new Product {Name = "Lifejacket", Person = 12.95M},
-                new Product {Name = "Kayak", Person = 200M},
-                new Product {Name = "Lifejacket", Person = 8.95M},
-                new Product {Name = "Kayak", Person = 27M},
+                new Product {Name = "one", Person = 275M},
+                new Product {Name = "two", Person = 12.95M},
+                new Product {Name = "three", Person = 200M},
+                new Product {Name = "four", Person = 8.95M},
+                new Product {Name = "five", Person = 27M},
                 new Product {Name = "Lifejacket", Person = 44.95M},
             };
             decimal arreyTotel = product.TotalPrices();
             decimal arreyTotelMin = product.FilterByPrice(100).TotalPrices();
             
+            decimal nameFiltrTotel = product.FilterByName('f').TotalPrices();
+           
             return View("Index", new string[]
             {
                 $"Total: {arreyTotel:C2}",
                 $"Arrey Total Min: {arreyTotelMin:C2}",
+                $"Arrey Total Min: {nameFiltrTotel:C2}",
             });
         }
     }
