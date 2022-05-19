@@ -56,5 +56,30 @@ namespace LanguageFeatures.Controllers
                 $"Total: {cartTotal + arreyTotel:C2}"
             });
         }
+        
+        /// <summary>
+        /// Применение фильтрующего расширения метода  MyExtensionMethobs.FilterByPrice
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult IndexFilterByPrice()
+        {
+            Product[] product =
+            {
+                new Product {Name = "Kayak", Person = 275M},
+                new Product {Name = "Lifejacket", Person = 12.95M},
+                new Product {Name = "Kayak", Person = 200M},
+                new Product {Name = "Lifejacket", Person = 8.95M},
+                new Product {Name = "Kayak", Person = 27M},
+                new Product {Name = "Lifejacket", Person = 44.95M},
+            };
+            decimal arreyTotel = product.TotalPrices();
+            decimal arreyTotelMin = product.FilterByPrice(100).TotalPrices();
+            
+            return View("Index", new string[]
+            {
+                $"Total: {arreyTotel:C2}",
+                $"Arrey Total Min: {arreyTotelMin:C2}",
+            });
+        }
     }
 }
