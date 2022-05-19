@@ -18,7 +18,7 @@
         }
 
         /// <summary>
-        /// Расширяемый метод принимает дополнительный параметр, который позволяет фильтровать товары по Price
+        /// Расширяемый метод принимает дополнительный параметр, который позволяет фильтровать товары 
         /// </summary>
         /// <param name="productEnum"></param>
         /// <param name="minimumPrice"></param>
@@ -34,24 +34,5 @@
                 }
             }
         }
-
-        /// <summary>
-        /// Расширяемый метод принимает дополнительный параметр, который позволяет фильтровать товары по Name
-        /// </summary>
-        /// <param name="productEnum"></param>
-        /// <param name="minimumName"></param>
-        /// <returns>возвращаются объекты Product , значение свойства Name которых совпадает c minimumName
-        /// параметре minimumPrice.</returns>
-        public static IEnumerable<Product> FilterByName(this IEnumerable<Product> productEnum, char minimumName)
-        {
-            foreach (Product product in productEnum)
-            {
-                if ((product?.Name?[0]) == minimumName)
-                {
-                    yield return product;
-                }
-            }
-        }
-        
     }
 }
