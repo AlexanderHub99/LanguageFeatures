@@ -53,5 +53,22 @@
             }
         }
         
+        /// <summary>
+        /// Расширяемый метод принимает аргумент (Лямбды -выражений)
+        /// </summary>
+        /// <param name="productEnum"></param>
+        /// <param name="minimumName"></param>
+        /// <returns>возвращаются объекты Product , значение свойства которых совпадает c Лямбдай
+        /// параметре minimumPrice.</returns>
+        public static IEnumerable<Product> Filter(this IEnumerable<Product> productEnum, Func<Product, bool> selector)
+        {
+            foreach (Product product in productEnum)
+            {
+                if (selector(product))
+                {
+                    yield return product;
+                }
+            }
+        }
     }
 }
