@@ -31,7 +31,7 @@ namespace LanguageFeatures.Controllers
                 ["Kayak"] = new Product() {Name = "Kayak", Person = 275M},
                 ["Lifejacket"] = new Product() {Name = "Lifejacket", Person = 48.95M},
             };
-            return View("IndexDictionary", products.Keys);
+            return View("Index", products.Keys);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace LanguageFeatures.Controllers
             decimal arreyTotel = product.TotalPrices();
             decimal cartTotal = cart.TotalPrices();
 
-            return View("IndexExtension", new string[]
+            return View("Index", new string[]
             {
                 $"Total: {cartTotal:C2}",
                 $"Total: {arreyTotel:C2}",
