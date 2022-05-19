@@ -1,8 +1,23 @@
-﻿namespace LanguageFeatures.Models
+﻿using System.Collections;
+
+namespace LanguageFeatures.Models
 {
-    public class ShoppingCart// Класс оболочка для List
+    /// <summary>
+    /// // Класс оболочка для List
+    /// </summary>
+    public class ShoppingCart : IEnumerable<Product>
+
     {
         public IEnumerable<Product> Products { get; set; }
+
+        public IEnumerator<Product> GetEnumerator()
+        {
+            return Products.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
-
