@@ -2,6 +2,10 @@
 {
     public static class MyExtensionMethobs //Класс с расширяемыми методами
     {
+        /// <summary>
+        /// Расширяемый метод 
+        /// </summary>
+        /// <returns>Сумму Product.Person</returns>
         public static decimal TotalPrices(this IEnumerable<Product> cartParam)
         {
             decimal total = 0;
@@ -14,13 +18,12 @@
         }
 
         /// <summary>
-        /// Расширяемый метод принимает дополнительный параметр, который позволяет фильтровать товары , как что в результате
-        /// возвращаются объекты Product , значение свойства Person которых совпадает или превышает значение указанное в
-        /// параметре minimumPrice.
+        /// Расширяемый метод принимает дополнительный параметр, который позволяет фильтровать товары 
         /// </summary>
         /// <param name="productEnum"></param>
         /// <param name="minimumPrice"></param>
-        /// <returns></returns>
+        /// <returns>возвращаются объекты Product , значение свойства Person которых совпадает или превышает значение указанное в
+        /// параметре minimumPrice.</returns>
         public static IEnumerable<Product> FilterByPrice(this IEnumerable<Product> productEnum, decimal minimumPrice)
         {
             foreach (Product product in productEnum)
