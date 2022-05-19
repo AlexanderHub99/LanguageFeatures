@@ -17,5 +17,15 @@ namespace LanguageFeatures.Controllers
             }
             return View(results);
         }
+
+        public ViewResult IndexDictionary()//Использование инициализатора индексированной коллекции
+        {
+            Dictionary<string, Product> products = new Dictionary<string, Product>
+            {
+                ["Kayak"]= new Product(){ Name = "Kayak", Person = 275M},
+                ["Lifejacket"]= new Product(){Name = "Lifejacket" , Person = 48.95M},
+            };
+            return View("IndexDictionary",products.Keys );
+        }
     }
 }
